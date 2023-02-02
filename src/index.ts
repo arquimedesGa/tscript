@@ -1,3 +1,5 @@
+import { AsyncLocalStorage } from "async_hooks";
+
 let name: string = 'Arquimedes';
 
 let age: number = 32;
@@ -37,5 +39,70 @@ enum daysOfWeek {
     sunday
 };
 
+//obligatory parameteres
 
-console.log(`${name} have a interview at monday ${daysOfWeek.monday} with a big company`);
+function saludar(name: string) {
+    console.log(`Hi my name is ${name}`);
+};
+
+
+
+function despedida(name?: string){
+    if(name) {
+        console.log(`bye ${name}`);
+    } else {
+        console.log(`bye`);
+    };
+};
+
+function funcionTipada(name: string, lastname: string): string{
+    return 'hola';
+};
+
+function exampleMultipleParams(...name: string[]) {
+    name.forEach((element) => {
+        console.log(element);
+    });
+};
+
+exampleMultipleParams('gabriel', 'jose', 'maria');
+
+type persona = {
+    name: string
+    lastname: string
+    age: number
+};
+
+const personaClient: persona = {
+    name: 'arquimedes',
+    lastname: 'rodriguez',
+    age: 32
+}
+
+const testandoPersona = (persona: persona): void => console.log(`hola me llamo ${persona.name} y mi edad es ${persona.age}`);
+
+
+function* testyield(valor: number) {
+    yield valor +1;
+    yield valor +2;
+};
+
+// console.log(testyield(1).next().value);
+// console.log(testyield(1).next().value);
+
+class startEngine {
+    public finish?: () => void;
+
+    public start(): void {
+        setTimeout(() => {
+            if(!this.finish) return;
+
+            this.finish();
+        }, 1000);
+    };
+};
+
+const startingTest: startEngine = new startEngine();
+
+startingTest.start()
+

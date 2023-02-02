@@ -4,7 +4,7 @@
   "description": "testing typescript",
   "main": "index.js",
   "scripts": {
-    "tsNode": "cd src && ts-node index.ts",
+    "tsnode": "cd src && ts-node index.ts",
     "start": "nodemon",
     "transpilation": "tsc",
     "build:prod": "rimraf ./build && tsc",
